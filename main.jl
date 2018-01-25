@@ -5,7 +5,7 @@
 include("dna.jl")
 
 #########################################################################
-# Composite type to store the genetic information of a given DNA sample
+# The driver function
 #########################################################################
 function main()
 	inputStr = ARGS[1]
@@ -31,7 +31,7 @@ end
 
 
 #########################################################################
-#
+# Function to mutate the child using the user entered mutation rate
 #########################################################################
 function mutateChild(child, mutationRate)
 	for i = 1:length(child.gene)
@@ -44,7 +44,7 @@ function mutateChild(child, mutationRate)
 end
 
 #########################################################################
-#
+# Function to add the new child to the mating pool
 #########################################################################
 function addChildToMatingPool(matingPool, child)
 	for j = 1:child.normalisedFitness
@@ -55,7 +55,7 @@ end
 
 
 #########################################################################
-#
+# Function to calculate the fitness of the child
 #########################################################################
 function calculateFitness(child, inputStr)
 	fitness = 0
@@ -70,7 +70,7 @@ function calculateFitness(child, inputStr)
 end
 
 #########################################################################
-#
+# Function to reproduce a child from the given parents
 #########################################################################
 function getChild(par1, par2)
 	child = ""
@@ -107,7 +107,7 @@ end
 
 
 #########################################################################
-# function to create a mating pool from given population array
+# Function to create a mating pool from given population array
 #########################################################################
 function createMatingPool(popArr)
 	matingPool = []
